@@ -1,0 +1,44 @@
+### Freestyle 1
+jq --version
+curl https://pokeapi.co/api/v2/pokemon/pikachu | jq '.name, .types[].type.name'
+
+
+### Freestyle 2
+echo 'Hola desde Jenkins'
+if [ -d "docker" ]; then
+    echo "El directorio docker existe."
+    rm -rfv docker
+else
+    echo "El directorio docker no existe."
+fi
+git clone https://github.com/johanfabi/docker.git
+ls -lt docker
+python3 --version
+python3 docker/jenkins-docker/src/main.py
+
+### Pipeline - Multibranch
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello from Jenkins'
+            }
+        }
+        stage('Checkout SCM') {
+            steps {
+                git branch: "main", url: "https://github.com/johanfabi/docker.git"
+            }
+        }    
+        stage('Python Test') {
+            steps {
+                script {
+                    sh 'python3 --version'
+                    sh 'ls -lt $WORKSPACE'
+                    sh 'python3 jenkins-docker/src/main.py'
+                }
+            }
+        }    
+    }
+}
