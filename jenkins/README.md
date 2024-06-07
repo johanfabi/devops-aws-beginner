@@ -1,4 +1,4 @@
-# Install Jenkins on Docker
+# Jenkins Lab
 
 ## Prerequisites
 - Docker

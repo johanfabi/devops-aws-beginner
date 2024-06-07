@@ -1,4 +1,4 @@
-# Kubernetes Deployment
+# Kubernetes Deployment Lab
 
 This repository contains the Kubernetes deployment files.
 
