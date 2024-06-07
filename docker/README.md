@@ -1,4 +1,4 @@
-# Basic Docker Commands
+# Docker Lab
 
 ### Build an image from a Dockerfile
 ```bash

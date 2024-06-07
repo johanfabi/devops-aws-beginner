@@ -24,7 +24,7 @@ spec:
         - name: shared-data
           mountPath: /pod-data
         command: ["sh"]
-        args: ["-c", "echo Hola Alumnos! > /pod-data/index.html"]
+        args: ["-c", "echo Hola Desde Kubernetes! > /pod-data/index.html"]
       containers:
       - name: nginx
         image: nginx
